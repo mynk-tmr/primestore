@@ -5,10 +5,13 @@
 		--alpha: #fbfbff;
 		--beta: #040f16;
 		--danger: #b80c09;
-		--info: #01baef;
+		--info: #080357;
 		--attention: #f1d302;
 		--success: #49d49d;
 		--azure: #3b82f6;
+	}
+	button {
+		@apply cursor-pointer;
 	}
 }
 
@@ -17,6 +20,9 @@
 		@apply !font-sans;
 	}
 	i[class^="i-"] {
-		@apply mr-1 inline-block;
+		@apply mr-1 inline-block mt-[2px];
+	}
+	.p-button {
+		@apply justify-center border-none focus:border-none hover:opacity-90 focus:opacity-90;
 	}
 }
