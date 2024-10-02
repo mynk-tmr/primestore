@@ -5,5 +5,8 @@
 		"build": "bun clean && bun --filter '*' build",
 		"dev": "bun --filter '*' dev",
 		"lint": "bunx biome check --write"
+	},
+	"dependencies": {
+		"@biomejs/biome": "^1.9.3"
 	}
 }

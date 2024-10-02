@@ -13,14 +13,14 @@
 		"jsx": "react-jsx",
 		"strict": true,
 		"paths": {
-			"server": ["../api/src"],
+			"server": ["../server/src"],
 			"@/*": ["./src/*"]
 		}
 	},
 	"include": ["src", "tests", "vite.config.ts"],
 	"references": [
 		{
-			"path": "../api/tsconfig.json"
+			"path": "../server/tsconfig.json"
 		}
 	]
 }

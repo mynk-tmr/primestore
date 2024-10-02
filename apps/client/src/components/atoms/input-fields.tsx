@@ -77,10 +77,10 @@ export function PasswordField() {
 	);
 }
 
-export function GoogleButton_Divider() {
+export function GoogleButtonDivider() {
 	return (
 		<div className="px-4">
-			<Button type="button" outlined className="w-full">
+			<Button type="button" outlined={true} className="w-full">
 				<i className="i-tabler-brand-google" /> Sign in with Google
 			</Button>
 			<Divider align="center">OR</Divider>

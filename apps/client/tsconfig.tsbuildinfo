@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/routeTree.gen.ts","./src/vite-env.d.ts","./src/components/app.tsx","./src/components/atoms/input-fields.tsx","./src/lib/api-client.ts","./src/routes/__root.tsx","./src/routes/_auth/forgot-password/index.tsx","./src/routes/_auth/login/index.tsx","./src/routes/_auth/signup/index.tsx","./vite.config.ts"],"version":"5.6.2"}

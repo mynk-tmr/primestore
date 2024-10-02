@@ -1,6 +1,6 @@
 import {
 	EmailField,
-	GoogleButton_Divider,
+	GoogleButtonDivider,
 	PasswordField,
 } from "@/components/atoms/input-fields";
 import { Link, createFileRoute } from "@tanstack/react-router";
@@ -21,7 +21,7 @@ function Page() {
 						Create Account
 					</Link>
 				</p>
-				<GoogleButton_Divider />
+				<GoogleButtonDivider />
 				<form className="grid gap-3">
 					<EmailField />
 					<PasswordField />

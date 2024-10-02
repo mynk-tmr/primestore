@@ -1,6 +1,6 @@
 import {
 	EmailField,
-	GoogleButton_Divider,
+	GoogleButtonDivider,
 	PasswordField,
 	UserNameField,
 } from "@/components/atoms/input-fields";
@@ -22,7 +22,7 @@ function Page() {
 						Login here
 					</Link>
 				</p>
-				<GoogleButton_Divider />
+				<GoogleButtonDivider />
 				<form className="grid gap-3">
 					<UserNameField />
 					<EmailField />
