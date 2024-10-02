@@ -1,12 +1,13 @@
 import { MongoClient } from "mongodb";
 import { echo } from "./echo";
 
-declare global {
-	var client: MongoClient | undefined;
+async function init() {
+	const client = new MongoClient(process.env.MONGODB_URI!);
+	await client.connect();
+	const orm = client.db(process.env.MONGO_DBNAME!);
+	const data = await orm.stats();
+	echo.green(`Connected to mongo : ${data.db}`);
+	return orm;
 }
 
-global.client ??= new MongoClient(process.env.MONGO_URI!);
-
-export const orm = global.client.db(process.env.MONGO_DBNAME!);
-
-orm.stats().then((data) => echo.green(`Connected to mongo : ${data.db}`));
+export const orm = await init();

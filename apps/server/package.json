@@ -1,11 +1,13 @@
 {
 	"name": "server",
+	"type": "module",
 	"scripts": {
-		"dev": "tsx watch --env-file=.env src/index.ts",
+		"dev": "tsx watch src/index.ts",
 		"build": "bun scripts/builder.ts"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.13.1",
+		"dotenv": "^16.4.5",
 		"hono": "^4.6.3",
 		"mongodb": "^6.9.0"
 	},

@@ -1,8 +1,5 @@
 {
-	"workspaces": [
-		"packages/*",
-		"apps/*"
-	],
+	"workspaces": ["packages/*", "apps/*"],
 	"type": "module",
 	"scripts": {
 		"clean": "rm -rf dist api",

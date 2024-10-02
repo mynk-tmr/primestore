@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["routeTree.gen.ts", "api/", "dist/", "*.d.ts"]
+		"ignore": ["routeTree.gen.ts", "api/", "dist/", "*.d.ts", ".vercel"]
 	},
 	"formatter": {
 		"enabled": true,
