@@ -26,4 +26,13 @@ export const userRoute = new Hono()
 		return c.json({
 			success: true,
 		});
+	})
+	.put("/:id", vValidator("json", userdto.update), async (c) => {
+		const { id } = c.req.param();
+		const doc = c.req.valid("json");
+		await userCtr.updateById(id, doc);
+		return c.json({
+			success: true,
+			data: null,
+		});
 	});

@@ -17,7 +17,7 @@ export const valiResponseHandler = createMiddleware(async (c, next) => {
 			JSON.stringify({
 				success: false,
 				error: {
-					cause: "VALI_ERROR",
+					cause: "DTO_ERROR",
 					message,
 				},
 			}),

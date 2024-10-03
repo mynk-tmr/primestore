@@ -24,7 +24,7 @@ async function findById(id: string) {
 	return await users.findOne(
 		{ _id: new ObjectId(id) },
 		{
-			projection: { password: 0 },
+			projection: { password: 1 },
 		},
 	);
 }
@@ -38,8 +38,26 @@ async function removeById(id: string) {
 	}
 }
 
+async function updateById(id: string, doc: UserDto["update"]) {
+	if (doc.password) {
+		doc.password = await hash(doc.password);
+	}
+	const res = await users.updateOne(
+		{ _id: new ObjectId(id) },
+		{
+			$set: { ...doc, updatedAt: new Date() },
+		},
+	);
+	if (res.matchedCount === 0) {
+		throw new HTTPException(404, {
+			message: "user not found.",
+		});
+	}
+}
+
 export const userCtr = {
 	insert,
 	findById,
 	removeById,
+	updateById,
 };
