@@ -6,7 +6,7 @@ import "./lib/mongo-driver";
 import { logger } from "hono/logger";
 import { echo } from "./lib/echo";
 import { errorHandler } from "./middlewares/error-handler";
-import { valiResponseHandler } from "./middlewares/vali-response-handler";
+import { responseTransformer } from "./middlewares/response-transformer";
 import { userRoute } from "./routes/user.route";
 import { testRoute } from "./utils/health-check";
 
@@ -21,11 +21,11 @@ const app = new Hono()
 			origin: isProd ? "" : "http://localhost:4000",
 		}),
 	)
-	.use(valiResponseHandler)
+	.use(responseTransformer)
 	.route("test", testRoute)
 	.route("users", userRoute);
 
 export type HonoApp = typeof app;
 
-echo.yellow("Running on http://localhost:3000/api");
+echo.blue("Running on http://localhost:3000/api");
 export default serve(app);

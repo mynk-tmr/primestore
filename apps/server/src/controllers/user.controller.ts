@@ -24,7 +24,7 @@ async function findById(id: string) {
 	return await users.findOne(
 		{ _id: new ObjectId(id) },
 		{
-			projection: { password: 1 },
+			projection: { password: 0 },
 		},
 	);
 }

@@ -30,7 +30,9 @@
 				"noDefaultExport": "off"
 			},
 			"suspicious": {
-				"noReactSpecificProps": "off"
+				"noReactSpecificProps": "off",
+				"noImplicitAnyLet": "off",
+				"noEvolvingTypes": "off"
 			}
 		}
 	},
