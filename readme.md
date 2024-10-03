@@ -1,1 +1,3 @@
-.env files should be placed in respective workspaces
+# PrimeStore
+
+[Documentation](https://github.com/mynk-tmr/primestore/tree/main/docs)

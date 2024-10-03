@@ -4,9 +4,9 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import "./lib/mongo-driver";
 import { logger } from "hono/logger";
+import { echo } from "./lib/echo";
 import { errorHandler } from "./middlewares/error-handler";
 import { valiResponseHandler } from "./middlewares/vali-response-handler";
-import { echo } from "./lib/echo";
 import { userRoute } from "./routes/user.route";
 import { testRoute } from "./utils/health-check";
 
