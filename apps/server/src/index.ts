@@ -25,7 +25,10 @@ const app = new Hono()
 	.route("test", testRoute)
 	.route("users", userRoute);
 
-serve(app);
+export default serve({
+	port: 3000,
+	fetch: app.fetch,
+});
 export type HonoApp = typeof app;
 
 echo.yellow("Running on http://localhost:3000/api");
