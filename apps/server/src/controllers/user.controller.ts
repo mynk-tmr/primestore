@@ -1,4 +1,4 @@
-import { hash } from "argon2";
+import { hash } from "bcrypt";
 import { HTTPException } from "hono/http-exception";
 import { ObjectId } from "mongodb";
 import { orm } from "../lib/mongo-driver";
@@ -15,7 +15,7 @@ async function insert(user: UserDto["insert"]) {
 	}
 	const date = new Date();
 	const doc = { ...user, createdAt: date, updatedAt: date };
-	doc.password = await hash(doc.password);
+	doc.password = await hash(doc.password, 10);
 	const res = await users.insertOne(doc);
 	return { _id: res.insertedId };
 }
@@ -40,7 +40,7 @@ async function removeById(id: string) {
 
 async function updateById(id: string, doc: UserDto["update"]) {
 	if (doc.password) {
-		doc.password = await hash(doc.password);
+		doc.password = await hash(doc.password, 10);
 	}
 	const res = await users.updateOne(
 		{ _id: new ObjectId(id) },
