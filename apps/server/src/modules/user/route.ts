@@ -1,7 +1,7 @@
 import { vValidator } from "@hono/valibot-validator";
 import { Hono } from "hono";
-import { userCtr } from "../controllers/user.controller";
-import { userdto } from "../models/user.model";
+import { userCtr } from "./controller";
+import { userdto } from "./model";
 
 export const userRoute = new Hono()
 	.get("/:id", async (c) => {

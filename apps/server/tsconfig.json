@@ -7,9 +7,11 @@
 		"moduleResolution": "Bundler",
 		"strict": true,
 		"skipLibCheck": true,
+		"esModuleInterop": true,
 		"emitDeclarationOnly": true,
 		"types": ["node", "bun"],
-		"jsx": "react-jsx",
-		"jsxImportSource": "hono/jsx"
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	}
 }

@@ -3,7 +3,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
-		"build": "bun scripts/builder.ts"
+		"build": "bun scripts/builder.ts",
+		"start": "NODE_ENV=production tsx watch src/index.ts"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.13.1",

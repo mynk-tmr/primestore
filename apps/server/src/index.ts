@@ -7,7 +7,8 @@ import { logger } from "hono/logger";
 import { echo } from "./lib/echo";
 import { errorHandler } from "./middlewares/error-handler";
 import { responseTransformer } from "./middlewares/response-transformer";
-import { userRoute } from "./routes/user.route";
+import { authRoute } from "./modules/auth/route";
+import { userRoute } from "./modules/user/route";
 import { testRoute } from "./utils/health-check";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -23,7 +24,8 @@ const app = new Hono()
 	)
 	.use(responseTransformer)
 	.route("test", testRoute)
-	.route("users", userRoute);
+	.route("users", userRoute)
+	.route("auth", authRoute);
 
 export type HonoApp = typeof app;
 

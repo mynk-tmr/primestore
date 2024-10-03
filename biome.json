@@ -27,7 +27,8 @@
 			"style": {
 				"noNonNullAssertion": "off",
 				"noVar": "error",
-				"noDefaultExport": "off"
+				"noDefaultExport": "off",
+				"useNamingConvention": "off"
 			},
 			"suspicious": {
 				"noReactSpecificProps": "off",

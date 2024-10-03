@@ -1,8 +1,8 @@
-import { hash } from "bcryptjs";
+import { orm } from "@/lib/mongo-driver";
+import bcrypt from "bcryptjs";
 import { HTTPException } from "hono/http-exception";
 import { ObjectId } from "mongodb";
-import { orm } from "../lib/mongo-driver";
-import type { UserDto } from "../models/user.model";
+import type { UserDto } from "./model";
 
 const users = orm.collection<UserDto["db"]>("users");
 
@@ -15,7 +15,7 @@ async function insert(user: UserDto["insert"]) {
 	}
 	const date = new Date();
 	const doc = { ...user, createdAt: date, updatedAt: date };
-	doc.password = await hash(doc.password, 10);
+	doc.password = await bcrypt.hash(doc.password, 10);
 	const res = await users.insertOne(doc);
 	return { _id: res.insertedId };
 }
@@ -29,6 +29,10 @@ async function findById(id: string) {
 	);
 }
 
+async function findByEmail(email: string) {
+	return await users.findOne({ email });
+}
+
 async function removeById(id: string) {
 	const res = await users.deleteOne({ _id: new ObjectId(id) });
 	if (res.deletedCount === 0) {
@@ -40,7 +44,7 @@ async function removeById(id: string) {
 
 async function updateById(id: string, doc: UserDto["update"]) {
 	if (doc.password) {
-		doc.password = await hash(doc.password, 10);
+		doc.password = await bcrypt.hash(doc.password, 10);
 	}
 	const res = await users.updateOne(
 		{ _id: new ObjectId(id) },
@@ -58,6 +62,7 @@ async function updateById(id: string, doc: UserDto["update"]) {
 export const userCtr = {
 	insert,
 	findById,
+	findByEmail,
 	removeById,
 	updateById,
 };
