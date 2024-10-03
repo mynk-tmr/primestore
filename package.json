@@ -2,7 +2,7 @@
 	"workspaces": ["packages/*", "apps/*"],
 	"type": "module",
 	"scripts": {
-		"clean": "rm -rf dist",
+		"clean": "rm -rf dist && git clean -fd && git restore api",
 		"build": "bun --filter '*' build",
 		"dev": "bun --filter '*' dev",
 		"lint": "bunx biome check --write"

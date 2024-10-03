@@ -28,4 +28,4 @@ const app = new Hono()
 export type HonoApp = typeof app;
 
 echo.blue("Running on http://localhost:3000/api");
-export default serve(app);
+serve(app);

@@ -1,4 +1,4 @@
-import { hash } from "bcrypt";
+import { hash } from "bcryptjs";
 import { HTTPException } from "hono/http-exception";
 import { ObjectId } from "mongodb";
 import { orm } from "../lib/mongo-driver";
