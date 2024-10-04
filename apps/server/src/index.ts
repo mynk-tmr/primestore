@@ -10,8 +10,7 @@ import { authRoute } from "./modules/auth/route";
 import { userRoute } from "./modules/user/route";
 import { echo } from "./utils/echo";
 import { testRoute } from "./utils/health-check";
-
-const isProd = process.env.NODE_ENV === "production";
+import { isProd } from "./utils/helpers";
 
 const app = new Hono()
 	.basePath("/api")

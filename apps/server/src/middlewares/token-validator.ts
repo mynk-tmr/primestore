@@ -1,13 +1,7 @@
+import type { JWT_Payload } from "@/types";
 import { getCookie } from "hono/cookie";
 import { createMiddleware } from "hono/factory";
 import { verify } from "hono/jwt";
-import type { JWTPayload } from "hono/utils/jwt/types";
-
-export type Payload = {
-	userId: string;
-};
-
-export type JWT_Payload = JWTPayload & Payload;
 
 export const tokenValidator = createMiddleware(async (c, next) => {
 	const token = getCookie(c, "token");

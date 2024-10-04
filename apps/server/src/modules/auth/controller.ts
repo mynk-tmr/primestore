@@ -1,4 +1,4 @@
-import type { JWT_Payload } from "@/middlewares/token-validator";
+import type { JWT_Payload } from "@/types";
 import { isProd } from "@/utils/helpers";
 import bcrypt from "bcryptjs";
 import type { Context } from "hono";

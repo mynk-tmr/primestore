@@ -1,6 +1,6 @@
 import { echo } from "@/utils/echo";
+import { rjson } from "@/utils/helpers";
 import { createMiddleware } from "hono/factory";
-import type { StatusCode } from "hono/utils/http-status";
 import type { BaseIssue } from "valibot";
 
 export const responseTransformer = createMiddleware(async (c, next) => {
@@ -22,7 +22,8 @@ export const responseTransformer = createMiddleware(async (c, next) => {
 			expected,
 			message,
 		}));
-		c.res = json(
+
+		c.res = rjson(
 			{
 				success: false,
 				error: {
@@ -34,9 +35,3 @@ export const responseTransformer = createMiddleware(async (c, next) => {
 		);
 	}
 });
-
-function json(body: unknown, status: StatusCode) {
-	return new Response(JSON.stringify(body), {
-		status,
-	});
-}

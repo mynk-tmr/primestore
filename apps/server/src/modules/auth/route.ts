@@ -1,4 +1,5 @@
-import { type Payload, tokenValidator } from "@/middlewares/token-validator";
+import { tokenValidator } from "@/middlewares/token-validator";
+import type { Payload } from "@/types";
 import { vValidator } from "@hono/valibot-validator";
 import { Hono } from "hono";
 import { userCtr } from "../user/controller";
