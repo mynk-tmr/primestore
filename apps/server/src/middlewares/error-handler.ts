@@ -1,7 +1,7 @@
+import { echo } from "@/utils/echo";
 import { isProd } from "@/utils/helpers";
 import type { Context } from "hono";
 import { HTTPException } from "hono/http-exception";
-import { echo } from "../lib/echo";
 
 export function errorHandler(err: Error, c: Context) {
 	if (err instanceof HTTPException) {

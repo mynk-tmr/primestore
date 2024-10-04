@@ -1,7 +1,7 @@
+import { echo } from "@/utils/echo";
 import { createMiddleware } from "hono/factory";
 import type { StatusCode } from "hono/utils/http-status";
 import type { BaseIssue } from "valibot";
-import { echo } from "../lib/echo";
 
 export const responseTransformer = createMiddleware(async (c, next) => {
 	await next();

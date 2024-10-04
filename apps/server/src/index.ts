@@ -1,14 +1,14 @@
 import "dotenv/config";
+import "./utils/mongo-driver";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import "./lib/mongo-driver";
 import { logger } from "hono/logger";
-import { echo } from "./lib/echo";
 import { errorHandler } from "./middlewares/error-handler";
 import { responseTransformer } from "./middlewares/response-transformer";
 import { authRoute } from "./modules/auth/route";
 import { userRoute } from "./modules/user/route";
+import { echo } from "./utils/echo";
 import { testRoute } from "./utils/health-check";
 
 const isProd = process.env.NODE_ENV === "production";
